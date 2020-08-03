@@ -35,7 +35,7 @@ public class TracingConfig {
 
     @Bean
     public Tracer tracer(@Nonnull MDCScopeManager mdcScopeManager, @Nonnull Reporter reporter) {
-        return new JaegerTracer.Builder("spring5-mvc-with-embedded-tomcat")
+        return new JaegerTracer.Builder("spring5-mvc-opentracing")
                 .withSampler(new ConstSampler(true))
                 .withScopeManager(mdcScopeManager)
                 .withReporter(reporter)

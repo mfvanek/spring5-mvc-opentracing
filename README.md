@@ -13,9 +13,7 @@ Spring 5 MVC demo app with embedded Jetty (without Spring Boot!) and OpenTracing
 
 ## Run in Docker
 ```
-docker run --name spring5-mvc-with-embedded-tomcat -d -p 8080:8080 spring5-mvc-with-embedded-tomcat:1.0-SNAPSHOT
-or
-docker run --name spring5-mvc-with-embedded-tomcat -d -p 8080:8080 localhost:5000/spring5-mvc-with-embedded-tomcat:1.0-SNAPSHOT
+docker run --name spring5-mvc-opentracing -d -p 8080:8080 localhost:5000/spring5-mvc-opentracing:1.0-SNAPSHOT
 ```
 
 ## Run Jaeger in Docker
@@ -29,18 +27,10 @@ Jaeger UI will start at `http://localhost:16686`
 
 ```
 # Create uber jar
-.\gradlew clean shadowJar
+mvn clean install
 
 # Run uber jar
-java -jar build/libs/spring5-mvc-with-embedded-tomcat-1.0-SNAPSHOT.jar
-or
-mvn spring-boot:run
-or
-java -jar target/spring5-mvc-with-embedded-tomcat-spring-boot.jar
-or
-java -jar target/spring5-mvc-with-embedded-tomcat-jar-with-dependencies.jar
-or
-java -jar target\spring5-mvc-with-embedded-tomcat-1.0-SNAPSHOT-shaded.jar
+java -jar target\spring5-mvc-opentracing-jar-with-dependencies.jar
 ```
 
 ## Build Docker image

@@ -78,7 +78,7 @@ public class RequestControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.title").value("Jaeger tracing demo"))
-                .andExpect(jsonPath("description").value(startsWith("Welcome from Spring MVC and Embedded Tomcat. ")))
+                .andExpect(jsonPath("description").value(startsWith("Welcome from Spring MVC and Embedded Jetty. ")))
                 .andReturn();
 
         assertEquals("application/json", mvcResult.getResponse().getContentType());
