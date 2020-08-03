@@ -59,7 +59,7 @@ public class RequestController {
         final Span span = tracer.buildSpan("displayWelcomeMessage").start();
         try (Scope ignored = tracer.activateSpan(span)) {
             final Task task = new Task("Jaeger tracing demo",
-                    "Welcome from Spring MVC and Embedded Tomcat. " + LocalDateTime.now());
+                    "Welcome from Spring MVC and Embedded Jetty. " + LocalDateTime.now());
             log.info("Task object {}", task);
             return new ResponseEntity<>(task, HttpStatus.OK);
         } finally {
