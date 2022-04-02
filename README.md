@@ -1,6 +1,8 @@
 # spring5-mvc-opentracing
 Spring 5 MVC demo app with embedded Jetty (without Spring Boot!) and OpenTracing
 
+[![Java CI](https://github.com/mfvanek/spring5-mvc-opentracing/actions/workflows/tests.yml/badge.svg)](https://github.com/mfvanek/spring5-mvc-opentracing/actions/workflows/tests.yml)
+
 ## Open in Browser
 * http://localhost:8080/api/v1/demo
 * http://localhost:8080/api/v1/demoException
