@@ -51,6 +51,17 @@ public class RequestControllerTest {
     }
 
     @Test
+    public void apiDocsShouldWork() throws Exception {
+        MvcResult mvcResult = this.mockMvc.perform(get("/v2/api-docs"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
+
+        assertEquals("application/json", mvcResult.getResponse().getContentType());
+        assertThat(mvcResult.getResponse().getContentAsString(), startsWith("{\"swagger\":\"2.0\""));
+    }
+
+    @Test
     public void log() throws Exception {
         MvcResult mvcResult = this.mockMvc.perform(get("/api/v1/demo"))
                 .andDo(print())
