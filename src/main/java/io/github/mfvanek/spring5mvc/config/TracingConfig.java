@@ -9,6 +9,7 @@ import io.jaegertracing.internal.samplers.ConstSampler;
 import io.jaegertracing.spi.Reporter;
 import io.jaegertracing.thrift.internal.senders.UdpSender;
 import io.opentracing.Tracer;
+import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,6 +24,7 @@ public class TracingConfig {
                 .build();
     }
 
+    @SneakyThrows
     @Bean
     public Reporter reporter() {
         return new CompositeReporter(
