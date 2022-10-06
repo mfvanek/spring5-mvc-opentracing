@@ -43,7 +43,7 @@ Jaeger UI will start at `http://localhost:16686`
 mvn clean install
 
 # Run uber jar
-java -jar target\spring5-mvc-opentracing-jar-with-dependencies.jar
+java -jar target/spring5-mvc-opentracing-jar-with-dependencies.jar
 ```
 
 ## Build Docker image
