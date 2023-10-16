@@ -17,7 +17,7 @@
         <source.encoding>UTF-8</source.encoding>
         <project.build.sourceEncoding>${source.encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${source.encoding}</project.reporting.outputEncoding>
-        <spring.version>5.3.24</spring.version>
+        <spring.version>6.0.13</spring.version>
         <swagger.version>3.0.0</swagger.version>
         <jaeger.version>1.8.1</jaeger.version>
         <docker.push.registry>localhost:5000</docker.push.registry>
