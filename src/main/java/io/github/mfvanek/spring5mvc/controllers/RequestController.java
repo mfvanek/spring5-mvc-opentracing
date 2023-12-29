@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Map;
 
@@ -24,14 +25,15 @@ import java.util.Map;
 public class RequestController {
 
     private final Tracer tracer;
+    private final Clock clock;
 
     @GetMapping(path = "/v1/demo")
     public ResponseEntity<Object> log() {
         final Span span = tracer.buildSpan("log").start();
         try (Scope ignored = tracer.activateSpan(span)) {
-            final String logMessage = "Add log entry at " + LocalDateTime.now();
-            log.info(logMessage);
-            return ResponseEntity.ok(logMessage);
+            final LocalDateTime now = LocalDateTime.now(clock);
+            log.info("Add log entry at {}", now);
+            return ResponseEntity.ok("Add log entry at " + now);
         } finally {
             span.finish();
         }
@@ -59,7 +61,7 @@ public class RequestController {
         final Span span = tracer.buildSpan("displayWelcomeMessage").start();
         try (Scope ignored = tracer.activateSpan(span)) {
             final Task task = new Task("Jaeger tracing demo",
-                    "Welcome from Spring MVC and Embedded Jetty. " + LocalDateTime.now());
+                    "Welcome from Spring MVC and Embedded Jetty. " + LocalDateTime.now(clock));
             log.info("Task object {}", task);
             return new ResponseEntity<>(task, HttpStatus.OK);
         } finally {
