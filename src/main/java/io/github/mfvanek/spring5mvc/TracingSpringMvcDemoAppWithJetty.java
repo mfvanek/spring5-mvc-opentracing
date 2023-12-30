@@ -67,7 +67,7 @@ public class TracingSpringMvcDemoAppWithJetty {
                 try {
                     server.stop();
                 } catch (Exception e) {
-                    log.error("Error while stopping jetty server: " + e.getMessage(), e);
+                    log.error("Error while stopping jetty server", e);
                 }
             }
         }));
