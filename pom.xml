@@ -16,7 +16,7 @@
         <project.reporting.outputEncoding>${source.encoding}</project.reporting.outputEncoding>
         <swagger.version>3.0.0</swagger.version>
         <jaeger.version>1.8.1</jaeger.version>
-        <lombok.version>1.18.30</lombok.version>
+        <lombok.version>1.18.32</lombok.version>
         <docker.push.registry>localhost:5000</docker.push.registry>
     </properties>
 
